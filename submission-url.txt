@@ -1,0 +1,4 @@
+CMSC 471 Assignment 2
+
+Public webpage: https://bhaveshthapar.github.io/cmsc471-assignment-2-gender/
+Demo video: media/assignment-2-demo.mp4
