@@ -3,20 +3,127 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Assignment 2: Black Hat/White Hat</title>
+        <title>Two views of secondary school enrollment</title>
         <link rel="stylesheet" href="css/styles.css" />
     </head>
     <body>
-        <div class="container">
-            <!-- Centers content and sets max width -->
-            <h1>Assignment 2: Black Hat/White Hat</h1>
-            <div id="black-hat-opt-1"></div>
-            <div id="white-hat-opt-1"></div>
-            <div id="black-hat-opt-2"></div>
-            <div id="white-hat-opt-2"></div>
-        </div>
+        <main>
+            <h1>Two views of secondary school enrollment</h1>
+            <p>
+                The same World Bank data can tell different stories about girls'
+                and boys' secondary school enrollment in Sub-Saharan Africa.
+                The first chart is deliberately misleading; the second gives
+                the longer view.
+            </p>
 
-        <!-- Load D3.js -->
+            <section aria-labelledby="black-title">
+                <h2 id="black-title">Black hat</h2>
+                <div class="chart" id="black-hat-opt-1"></div>
+                <h3>How this chart misleads</h3>
+                <p>
+                    The red line shows the difference between boys' and girls'
+                    gross secondary enrollment rates in percentage points. We
+                    subtract the girls' rate from the boys' rate for each year,
+                    then show only 1996 through 2009. During that slice, the gap
+                    rises from 5.04 to 7.93 points. A reader who sees only these
+                    years can reasonably conclude that the disparity kept
+                    growing. The source data continue through 2018, when the
+                    gap is 5.29 points. Omitting those later years is the main
+                    selective transformation.
+                </p>
+                <p>
+                    The vertical axis also starts near the smallest value in
+                    the selected period rather than at zero. This stretches a
+                    change of a few percentage points across almost the full
+                    height of the plot. The tall, narrow frame adds to that
+                    impression. A smoothed curve rounds off the year-to-year
+                    changes and makes the selected trend look more continuous
+                    than the original annual observations. Red color and the
+                    title “Is anyone closing the gap?” give the graph an urgent
+                    interpretation before the viewer has checked the axis or
+                    date range.
+                </p>
+                <p>
+                    None of the underlying enrollment values are invented. The
+                    deception comes from the period, scale, curve, and framing.
+                    The chart is especially easy to overread because “gap”
+                    sounds like an outcome measure, but gross enrollment says
+                    how many students are enrolled relative to the population
+                    of official secondary-school age. It does not measure
+                    graduation, learning, or equal access within every country
+                    in the region. The source note below gives the data's
+                    origin; the white-hat chart restores the omitted context.
+                </p>
+            </section>
+
+            <section aria-labelledby="white-title">
+                <h2 id="white-title">White hat</h2>
+                <div class="chart" id="white-hat-opt-1"></div>
+                <p class="note">On a small screen, scroll the chart sideways to see all years.</p>
+                <h3>Why this chart is clearer</h3>
+                <p>
+                    The white-hat view plots the female and male gross
+                    secondary enrollment rates themselves for every available
+                    Sub-Saharan Africa year in our subset, 1970 through 2018.
+                    Both lines share a single vertical scale from 0% to 50%,
+                    which includes zero and covers all plotted values. The
+                    legend names each line directly, and the axes state the
+                    year and unit. Hovering over the plot gives both rates and
+                    their difference for a selected year. The full span shows
+                    rising enrollment for both groups and makes it possible to
+                    see that the gap widened during some years and narrowed
+                    later. For example, the gap is 5.04 points in 1996, 7.93
+                    in 2009, and 5.29 in 2018.
+                </p>
+                <p>
+                    The local CSV is a two-decimal-place subset of the World
+                    Bank gender indicators compiled in the linked repository.
+                    It contains Sub-Saharan Africa and World rows, but these
+                    charts filter to Sub-Saharan Africa. The white chart uses
+                    the female and male secondary-school gross enrollment
+                    columns without smoothing or aggregating the years again.
+                    The black chart uses those same columns to calculate the
+                    male-minus-female gap. The World rows and tertiary
+                    enrollment columns are not used in either plot.
+                </p>
+                <p>
+                    These are regional estimates, so they hide differences
+                    among countries and depend on the reporting and aggregation
+                    choices behind the World Bank series. Gross enrollment can
+                    exceed 100% because it counts enrolled students regardless
+                    of age. It should not be read as the percentage of children
+                    who completed school. The source reports female and male
+                    categories; this chart does not describe students outside
+                    those categories. These limits matter even when the axis
+                    and time range are shown honestly.
+                </p>
+            </section>
+
+            <section aria-labelledby="details-title">
+                <h2 id="details-title">Sources and process</h2>
+                <p>
+                    Data: <a href="https://github.com/light-and-salt/World-Bank-Data-by-Indicators/blob/master/gender/gender.csv">World Bank gender indicators CSV</a>.
+                    Indicator definitions: <a href="https://data.worldbank.org/indicator/SE.SEC.ENRR.FE">female</a>
+                    and <a href="https://data.worldbank.org/indicator/SE.SEC.ENRR.MA">male</a>
+                    gross secondary enrollment. The visualizations use
+                    <a href="https://d3js.org/">D3.js</a>; they do not adapt an existing chart example.
+                </p>
+                <p>
+                    Bhavesh Thapar, Leia Spagnola, and Matthew Wlazlo worked
+                    together on the data selection, both charts, interpretation,
+                    writing, and review. Each contributed about three hours,
+                    for roughly nine people-hours in total. Comparing date
+                    ranges and scales, then explaining their effect, took the
+                    most time.
+                </p>
+                <p>
+                    AI use: OpenAI Codex assisted with checking the dataset,
+                    editing the page and code, and drafting the explanations.
+                    The team remains responsible for the figures and claims.
+                </p>
+            </section>
+        </main>
+
         <script src="https://d3js.org/d3.v7.min.js"></script>
         <script src="js/script.js"></script>
     </body>
