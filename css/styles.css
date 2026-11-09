@@ -1,0 +1,21 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+}
+.container > div {
+    margin-bottom: 30px;
+}
+.tooltip {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 4px 8px;
+    font-size: 12px;
+    pointer-events: none;
+}
+.note {
+    font-size: 11px;
+    color: #555;
+    max-width: 600px;
+    margin: 0;
+}
